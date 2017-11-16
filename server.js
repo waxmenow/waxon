@@ -46,16 +46,17 @@ app.use(session({
   //     secret: 'memcached-secret-key'
 //     username: 'F53955',
  //   password: '73AAAEEECFF4C7A65977B169C76FEF2F'
- //})
+// })
 }));
  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(express.static(__dirname + '/public'));
 
 router.get('/', function(req, res) {
-     res.sendFile(__dirname + '/views/index.html');
+     res.sendFile(__dirname + '/public/index.html');
 });
 
 router.get('/acceptAppointment', function(req, res) {
